@@ -5,8 +5,19 @@
 
 #include "s3eExt.h"
 #include "IwDebug.h"
+#include "s3eDevice.h"
+
 
 #include "s3eAndroidAppirater.h"
+
+
+#ifndef S3E_EXT_SKIP_LOADER_CALL_LOCK
+// For MIPs (and WP8) platform we do not have asm code for stack switching
+// implemented. So we make LoaderCallStart call manually to set GlobalLock
+#if defined __mips || defined S3E_ANDROID_X86 || (defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP))
+#define LOADER_CALL_LOCK
+#endif
+#endif
 
 /**
  * Definitions for functions types passed to/from s3eExt interface
@@ -36,7 +47,8 @@ static bool _extLoad()
         if (res == S3E_RESULT_SUCCESS)
             g_GotExt = true;
         else
-            s3eDebugAssertShow(S3E_MESSAGE_CONTINUE_STOP_IGNORE, "error loading extension: s3eAndroidAppirater");
+            s3eDebugAssertShow(S3E_MESSAGE_CONTINUE_STOP_IGNORE,                 "error loading extension: s3eAndroidAppirater");
+
         g_TriedExt = true;
         g_TriedNoMsgExt = true;
     }
@@ -72,7 +84,17 @@ s3eResult AppiraterInit(const char* cTitle, const char* cAppName, int iDays, int
     if (!_extLoad())
         return S3E_RESULT_ERROR;
 
-    return g_Ext.m_AppiraterInit(cTitle, cAppName, iDays, iLaunches, iEvents);
+#ifdef LOADER_CALL_LOCK
+    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+#endif
+
+    s3eResult ret = g_Ext.m_AppiraterInit(cTitle, cAppName, iDays, iLaunches, iEvents);
+
+#ifdef LOADER_CALL_LOCK
+    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+#endif
+
+    return ret;
 }
 
 s3eResult AppiraterEventOccured()
@@ -82,5 +104,15 @@ s3eResult AppiraterEventOccured()
     if (!_extLoad())
         return S3E_RESULT_ERROR;
 
-    return g_Ext.m_AppiraterEventOccured();
+#ifdef LOADER_CALL_LOCK
+    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+#endif
+
+    s3eResult ret = g_Ext.m_AppiraterEventOccured();
+
+#ifdef LOADER_CALL_LOCK
+    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+#endif
+
+    return ret;
 }

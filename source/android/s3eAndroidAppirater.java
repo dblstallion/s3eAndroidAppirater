@@ -124,7 +124,7 @@ class s3eAndroidAppirater
         TextView tv = new TextView(mContext);
         tv.setText("If you enjoy using " + sTitle + ", please take a moment to rate it. Thanks for your support!");
         tv.setWidth(240);
-        tv.setPadding(4, 0, 4, 10);
+        tv.setPadding(14, 0, 14, 10);
         ll.addView(tv);
         
         Button b1 = new Button(mContext);
