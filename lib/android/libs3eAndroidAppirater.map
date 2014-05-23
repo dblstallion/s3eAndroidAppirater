@@ -1,0 +1,419 @@
+Archive member included because of file (symbol)
+
+C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                              release\s3eAndroidAppirater_platform.os (s3eEdkThreadRunOnOS)
+
+Discarded input sections
+
+ _ZN7_JNIEnv13CallIntMethodEP8_jobjectP10_jmethodIDz
+                0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+ _ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
+                0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+ .text          0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+ .data          0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+ .note.GNU-stack
+                0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+ .text          0x00000000        0x0 release\s3eAndroidAppirater.os
+ .data          0x00000000        0x0 release\s3eAndroidAppirater.os
+ .bss           0x00000000        0x0 release\s3eAndroidAppirater.os
+ .note.GNU-stack
+                0x00000000        0x0 release\s3eAndroidAppirater.os
+ .text          0x00000000        0x0 release\s3eAndroidAppirater_register.os
+ .data          0x00000000        0x0 release\s3eAndroidAppirater_register.os
+ .bss           0x00000000        0x0 release\s3eAndroidAppirater_register.os
+ .text._Z30s3eAndroidAppiraterRegisterExtv
+                0x00000000        0x0 release\s3eAndroidAppirater_register.os
+ .note.GNU-stack
+                0x00000000        0x0 release\s3eAndroidAppirater_register.os
+ .text          0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .data          0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .bss           0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text.s3eEdkThreadRunOnOSAsync
+                0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .ARM.extab.text.s3eEdkThreadRunOnOSAsync
+                0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .ARM.exidx.text.s3eEdkThreadRunOnOSAsync
+                0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text.s3eEdkErrorSetString
+                0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .ARM.extab.text.s3eEdkErrorSetString
+                0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .ARM.exidx.text.s3eEdkErrorSetString
+                0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD release\s3eAndroidAppirater_platform.os
+LOAD release\s3eAndroidAppirater.os
+LOAD release\s3eAndroidAppirater_register.os
+LOAD C:\marmalade\6.0\s3e\edk\lib\android\libedk.a
+LOAD C:\marmalade\6.0\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
+LOAD C:\android-ndk-r7c\platforms\android-9\arch-arm\usr\lib/libc.so
+LOAD C:\android-ndk-r7c\platforms\android-9\arch-arm\usr\lib/libm.so
+LOAD C:\android-ndk-r7c\platforms\android-9\arch-arm\usr\lib/liblog.so
+LOAD C:\android-ndk-r7c\platforms\android-9\arch-arm\usr\lib/libstdc++.so
+LOAD C:/android-ndk-r7c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
+                0x000000d4                . = (0x0 + SIZEOF_HEADERS)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash           0x000000d4       0x9c
+ *(.hash)
+ .hash          0x000000d4       0x9c release\s3eAndroidAppirater_platform.os
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym         0x00000170      0x140
+ *(.dynsym)
+ .dynsym        0x00000170      0x140 release\s3eAndroidAppirater_platform.os
+
+.dynstr         0x000002b0      0x129
+ *(.dynstr)
+ .dynstr        0x000002b0      0x129 release\s3eAndroidAppirater_platform.os
+
+.gnu.version    0x000003da        0x0 load address 0x000003d9
+ *(.gnu.version)
+ .gnu.version   0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+
+.gnu.version_d  0x000003dc        0x0 load address 0x000003d9
+ *(.gnu.version_d)
+ .gnu.version_d
+                0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+
+.gnu.version_r  0x000003dc        0x0 load address 0x000003d9
+ *(.gnu.version_r)
+ .gnu.version_r
+                0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+
+.rel.dyn        0x000003dc       0x20
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ .rel.got       0x000003dc       0x20 release\s3eAndroidAppirater_platform.os
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+
+.rela.dyn
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+
+.rel.plt        0x000003fc       0x18
+ *(.rel.plt)
+ .rel.plt       0x000003fc       0x18 release\s3eAndroidAppirater_platform.os
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(.init)
+
+.plt            0x00000414       0x38
+ *(.plt)
+ .plt           0x00000414       0x38 release\s3eAndroidAppirater_platform.os
+
+.text           0x0000044c      0x55c
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text._Z37s3eAndroidAppiraterTerminate_platformv
+                0x0000044c        0x4 release\s3eAndroidAppirater_platform.os
+                0x0000044c                s3eAndroidAppiraterTerminate_platform()
+ .text._ZN7_JNIEnv13CallIntMethodEP8_jobjectP10_jmethodIDz
+                0x00000450       0x38 release\s3eAndroidAppirater_platform.os
+                0x00000450                _JNIEnv::CallIntMethod(_jobject*, _jmethodID*, ...)
+ .text._ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
+                0x00000488       0x38 release\s3eAndroidAppirater_platform.os
+                0x00000488                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
+ .text._Z32s3eAndroidAppiraterInit_platformv
+                0x000004c0      0x1d4 release\s3eAndroidAppirater_platform.os
+                0x000004c0                s3eAndroidAppiraterInit_platform()
+ .text._Z30AppiraterEventOccured_platformv
+                0x00000694       0x58 release\s3eAndroidAppirater_platform.os
+                0x00000694                AppiraterEventOccured_platform()
+ .text._Z22AppiraterInit_platformPKcS0_iii
+                0x000006ec       0xb8 release\s3eAndroidAppirater_platform.os
+                0x000006ec                AppiraterInit_platform(char const*, char const*, int, int, int)
+ .text._ZL27s3eEdkAndroidFindClass_realPKc
+                0x000007a4       0xa0 release\s3eAndroidAppirater_platform.os
+ .text.AppiraterEventOccured
+                0x00000844       0x10 release\s3eAndroidAppirater.os
+                0x00000844                AppiraterEventOccured
+ .text.AppiraterInit
+                0x00000854       0x20 release\s3eAndroidAppirater.os
+                0x00000854                AppiraterInit
+ .text._Z28s3eAndroidAppiraterTerminatev
+                0x00000874       0x10 release\s3eAndroidAppirater.os
+                0x00000874                s3eAndroidAppiraterTerminate()
+ .text._Z23s3eAndroidAppiraterInitv
+                0x00000884       0x10 release\s3eAndroidAppirater.os
+                0x00000884                s3eAndroidAppiraterInit()
+ .text._ZL26AppiraterEventOccured_wrapv
+                0x00000894       0x20 release\s3eAndroidAppirater_register.os
+ .text._ZL18AppiraterInit_wrapPKcS0_iii
+                0x000008b4       0x44 release\s3eAndroidAppirater_register.os
+ .text.RegisterExt
+                0x000008f8       0x80 release\s3eAndroidAppirater_register.os
+                0x000008f8                RegisterExt
+ .text.s3eEdkThreadRunOnOS
+                0x00000978       0x30 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000978                s3eEdkThreadRunOnOS
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+ *(.v4_bx)
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.fini
+ *(.fini)
+                0x000009a8                PROVIDE (__etext, .)
+                0x000009a8                PROVIDE (_etext, .)
+                0x000009a8                PROVIDE (etext, .)
+
+.rodata         0x000009a8       0x78
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x000009a8       0x78 release\s3eAndroidAppirater_platform.os
+ .rodata.str1.4
+                0x00000000       0x14 release\s3eAndroidAppirater_register.os
+
+.rodata1
+ *(.rodata1)
+
+.ARM.extab      0x00000a20        0xc
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ .ARM.extab.text.s3eEdkThreadRunOnOS
+                0x00000a20        0xc C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000a2c                __exidx_start = .
+
+.ARM.exidx      0x00000a2c        0x8
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+ .ARM.exidx.text.s3eEdkThreadRunOnOS
+                0x00000a2c        0x8 C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000a34                __exidx_end = .
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+                0x00000a34                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x00001a34                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array
+ *(.preinit_array)
+
+.init_array
+ *(SORT(.init_array.*))
+ *(.init_array)
+
+.fini_array
+ *(.fini_array)
+ *(SORT(.fini_array.*))
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic        0x00001a34       0xa8
+ *(.dynamic)
+ .dynamic       0x00001a34       0xa8 release\s3eAndroidAppirater_platform.os
+                0x00001a34                _DYNAMIC
+                0x00001adc                . = (. DATA_SEGMENT_RELRO_END 0x0)
+
+.got            0x00001adc       0x28
+ *(.got.plt)
+ .got.plt       0x00001adc       0x18 release\s3eAndroidAppirater_platform.os
+                0x00001adc                _GLOBAL_OFFSET_TABLE_
+ *(.got)
+ .got           0x00001af4       0x10 release\s3eAndroidAppirater_platform.os
+
+.data           0x00001b04        0x0
+                0x00001b04                __data_start = .
+ *(.data .data.* .gnu.linkonce.d.*)
+
+.data1
+ *(.data1)
+                0x00001b04                _edata = .
+                0x00001b04                PROVIDE (edata, .)
+                0x00001b04                __bss_start = .
+                0x00001b04                __bss_start__ = .
+
+.bss            0x00001b04        0xc
+ *(.dynbss)
+ .dynbss        0x00000000        0x0 release\s3eAndroidAppirater_platform.os
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00001b04        0xc release\s3eAndroidAppirater_platform.os
+ *(COMMON)
+                0x00001b10                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x00001b10                _bss_end__ = .
+                0x00001b10                __bss_end__ = .
+                0x00001b10                . = ALIGN (0x4)
+                0x00001b10                . = ALIGN (0x4)
+                0x00001b10                __end__ = .
+                0x00001b10                _end = .
+                0x00001b10                PROVIDE (end, .)
+                0x00001b10                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x61
+ *(.comment)
+ .comment       0x00000000       0x12 release\s3eAndroidAppirater_platform.os
+ .comment       0x00000012       0x12 release\s3eAndroidAppirater.os
+ .comment       0x00000024       0x12 release\s3eAndroidAppirater_register.os
+ .comment       0x00000036       0x2b C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+OUTPUT(C:\marmalade\6.0\extensions\s3eandroidappirater\lib\android\libs3eAndroidAppirater.so elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x2a
+ .ARM.attributes
+                0x00000000       0x28 release\s3eAndroidAppirater_platform.os
+ .ARM.attributes
+                0x00000028       0x28 release\s3eAndroidAppirater.os
+ .ARM.attributes
+                0x00000050       0x28 release\s3eAndroidAppirater_register.os
+ .ARM.attributes
+                0x00000078       0x2c C:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
