@@ -13,11 +13,11 @@ from os.path import join
 
 SetOption("implicit_cache" ,1)
 
-target_name = 'c:/marmalade/6.0/extensions/s3eandroidappirater/lib/android/libs3eAndroidAppirater.so'
-target_name_debug = 'c:/marmalade/6.0/extensions/s3eandroidappirater/lib/android/libs3eAndroidAppirater_d.so'
-target_name_rvct = 'c:/marmalade/6.0/extensions/s3eandroidappirater/lib/android/libs3eAndroidAppirater.so'
-target_name_debug_rvct = 'c:/marmalade/6.0/extensions/s3eandroidappirater/lib/android/libs3eAndroidAppirater_d.so'
-sdk_root = 'c:/marmalade/6.0'
+target_name = 'c:/Marmalade/7.1/extensions/s3eAndroidAppirater/lib/android/libs3eAndroidAppirater.so'
+target_name_debug = 'c:/Marmalade/7.1/extensions/s3eAndroidAppirater/lib/android/libs3eAndroidAppirater_d.so'
+target_name_rvct = 'c:/Marmalade/7.1/extensions/s3eAndroidAppirater/lib/android/libs3eAndroidAppirater.so'
+target_name_debug_rvct = 'c:/Marmalade/7.1/extensions/s3eAndroidAppirater/lib/android/libs3eAndroidAppirater_d.so'
+sdk_root = 'c:/marmalade/7.1'
 
 scons_version = SCons.__version__.split(".")[:2]
 scons_version = [int(x) for x in scons_version]
@@ -51,9 +51,9 @@ includes = SplitN(r'''
 ../../../s3e/h/ext
 ../../../modules/iwutil/h
 ../../../modules/iwcore/h
-../../../../../android-ndk-r7c/sources/cxx-stl/gnu-libstdc++/include
-../../../../../android-ndk-r7c/sources/cxx-stl/gnu-libstdc++/libs/armeabi/include
-../../../../../android-ndk-r7c/platforms/android-9/arch-arm/usr/include
+../../../../../Program Files (x86)/android-ndk-r9/sources/cxx-stl/gnu-libstdc++/4.4.3/include
+../../../../../Program Files (x86)/android-ndk-r9/sources/cxx-stl/gnu-libstdc++/4.4.3/libs/armeabi/include
+../../../../../Program Files (x86)/android-ndk-r9/platforms/android-9/arch-arm/usr/include
 ''')
 
 libraries = SplitN(r'''
@@ -62,7 +62,7 @@ libplaceholderplaceholderplaceholderplaceholderplaceholder
 c
 m
 log
-stdc++
+gnustl_static
 gcc
 ''')
 
@@ -72,7 +72,7 @@ libplaceholderplaceholderplaceholderplaceholderplaceholder
 c
 m
 log
-stdc++
+gnustl_static
 gcc
 ''')
 
@@ -82,7 +82,7 @@ libplaceholderplaceholderplaceholderplaceholderplaceholder
 c
 m
 log
-stdc++
+gnustl_static
 gcc
 ''')
 
@@ -92,7 +92,7 @@ libplaceholderplaceholderplaceholderplaceholderplaceholder
 c
 m
 log
-stdc++
+gnustl_static
 gcc
 ''')
 
@@ -101,9 +101,9 @@ extra_objects = SplitN(r'''
 ''')
 
 libpath = SplitN(r'''
-c:/marmalade/6.0/s3e/edk/lib/android
-C:/android-ndk-r7c/sources/cxx-stl/gnu-libstdc++/libs/armeabi
-C:/android-ndk-r7c/platforms/android-9/arch-arm/usr/lib
+c:/marmalade/7.1/s3e/edk/lib/android
+c:/Program Files (x86)/android-ndk-r9/sources/cxx-stl/gnu-libstdc++/4.4.3/libs/armeabi
+C:/Program Files (x86)/android-ndk-r9/platforms/android-9/arch-arm/usr/lib
 ''')
 
 Extensions_sources = SplitN(r'''
@@ -134,6 +134,7 @@ source_flags = {
 
 # Environment variables set by the mkb system
 export_map = {
+    'EDK_BUILDER' : 'c:\\marmalade\\7.1/s3e/edk/builder',
 }
 
 exports = Split("""
@@ -150,7 +151,6 @@ CCACHE_LOGFILE
 CCACHE_TEMPDIR
 CCACHE_DIR
 HOME
-BREWTOOLSDIR
 BTILDIR
 TEMP
 TMP
@@ -163,6 +163,7 @@ CODESIGN_ALLOCATE
 IPHONEOS_DEPLOYMENT_TARGET
 MAXOSX_DEPLOYMENT_TARGET
 SYSTEMROOT
+SYSTEMDRIVE
 """)
 
 for export in exports:
@@ -171,7 +172,7 @@ for export in exports:
 
 arch = "ARM"
 
-gcc_variants = ["gcc", "arm-none-linux-gnueabi-gcc", "arm-linux-gnu-gcc", "arm-none-eabi-gcc", 'mipsel-linux-uclibc-gcc', 'mips-linux-gnu-gcc']
+gcc_variants = ["gcc", "arm-none-linux-gnueabi-gcc", "arm-linux-gnu-gcc", "arm-none-eabi-gcc", 'mipsel-linux-uclibc-gcc', 'mips-linux-gnu-gcc', 'clang', 'i686-linux-android-gcc', 'i386-linux-gnueabi-gcc']
 
 #
 # Figure out what compiler to use
@@ -192,7 +193,8 @@ else:
 
 
 paths = [
-    r'C:\android-ndk-r7c\toolchains\arm-linux-androideabi-4.4.3\prebuilt\windows\bin',
+    r'C:\Program Files (x86)\android-ndk-r9\toolchains\arm-linux-androideabi-4.8\prebuilt\windows\bin',
+    r'c:\Program Files (x86)\android-ndk-r9\toolchains\arm-linux-androideabi-4.4.3\prebuilt\windows\bin',
 ]
 
 path = []
@@ -210,6 +212,7 @@ if os.name == 'nt':
 if os.name == 'posix':
     add_to_path("/bin")
     add_to_path("/usr/bin")
+    add_to_path("/usr/sbin")
 
 for p in reversed(paths):
     add_to_path(p, prepend=1)
@@ -256,46 +259,53 @@ if compiler == 'rvct':
     else:
         env.Append(CCFLAGS=['-Otime', '-O3', '--preinclude=temp_defines_release.h'])
         env.Append(LINKFLAGS=[])
-    env.Append(CCFLAGS=['--split_sections', '--diag_remark=1,9,111,128,174,177,196,381,550,611,815,1293,1294,1295,1299,1300,1304,3052', '--no_exceptions', '--fpu=softvfp', '--apcs=/interwork', '--cpu=4T'])
+    env.Append(CCFLAGS=['--split_sections', '--diag_remark=1,9,111,128,174,177,196,381,550,611,815,1293,1294,1295,1299,1300,1304,3052', '--no_exceptions', '--fpu=softvfp+vfpv2', '--apcs=/interwork', '--cpu=5TE'])
     env.Append(CFLAGS=[])
     env.Append(CXXFLAGS=['--cpp'])
     env['ARFLAGS'] = ['--create']
-    env['ASFLAGS'] = ['-g', '--list=', '--apcs=/interwork', '--cpu=4T']
+    env['ASFLAGS'] = ['-g', '--apcs=/interwork', '--cpu=5TE']
+    env['ASPPFLAGS'] = []
     env['STRIPFLAGS'] = []
     env['CXXCOM'] = '$CXX -o $TARGET -c $CCFLAGS $CXXFLAGS $_CCCOMCOM $SOURCES'
+    env['SHCCFLAGS'] = SCons.Util.CLVar('$CCFLAGS -fPIC')
 
 else:
-    env.Append(LINKFLAGS=['-nostdlib', '-Wl,-Bsymbolic', '-Wl,--no-undefined', '-pthread', '-Wl,--gc-sections', '-Wl,--as-needed', '-mthumb-interwork'])
+    env.Append(LINKFLAGS=['-Wl,-Bsymbolic', '-Wl,--no-undefined', '--sysroot="C:\\Program', 'Files', '(x86)\\android-ndk-r9\\platforms\\android-9/arch-arm"', '-Wl,--gc-sections', '-Wl,--as-needed', '-mthumb-interwork'])
     if env['debug']:
         env.Append(CCFLAGS=['-g', '-O0', '-include', 'temp_defines_debug.h'])
-        env.Append(LINKFLAGS=['-Wl,-Map="c:/marmalade/6.0/extensions/s3eandroidappirater/lib/android/libs3eAndroidAppirater_d.map"'])
+        env.Append(LINKFLAGS=['-Wl,-Map="c:/Marmalade/7.1/extensions/s3eAndroidAppirater/lib/android/libs3eAndroidAppirater_d.map"'])
         env.Append(PLFLAGS=[])
     else:
         env.Append(CCFLAGS=['-O3', '-include', 'temp_defines_release.h'])
-        env.Append(LINKFLAGS=['-Wl,-Map="c:/marmalade/6.0/extensions/s3eandroidappirater/lib/android/libs3eAndroidAppirater.map"'])
-    env.Append(CCFLAGS=['-fsigned-char', '-fno-strict-aliasing', '-fvisibility=hidden', '-fno-short-enums', '-Wall', '-fomit-frame-pointer', '-fmessage-length=0', '-Wno-unused', '-Wno-parentheses', '-save-temps', '-ffunction-sections', '-mstructure-size-boundary=8', '-mfloat-abi=soft', '-mthumb-interwork', '-march=armv4t'])
+        env.Append(LINKFLAGS=['-Wl,-Map="c:/Marmalade/7.1/extensions/s3eAndroidAppirater/lib/android/libs3eAndroidAppirater.map"'])
+    env.Append(CCFLAGS=['-fsigned-char', '-fno-strict-aliasing', '-Wno-psabi', '-fvisibility=hidden', '-fno-short-enums', '-Wall', '-fomit-frame-pointer', '-fmessage-length=0', '-Wno-unused', '-Wno-parentheses', '-save-temps', '-ffunction-sections', '-mstructure-size-boundary=8', '-mfpu=vfp', '-mfloat-abi=softfp', '-mthumb-interwork', '-march=armv5te'])
     env.Append(CFLAGS=['-std=gnu99'])
     env.Append(CXXFLAGS=['-fno-exceptions'])
     env['ARFLAGS'] = ['rc']
     env['ASFLAGS'] = []
+    env['ASPPFLAGS'] = ['-x', 'assembler-with-cpp']
     env['STRIPFLAGS'] = []
     env['CXXCOM'] = '$CXX -o $TARGET -c $CCFLAGS $CXXFLAGS $_CCCOMCOM $SOURCES'
+    env['SHCCFLAGS'] = SCons.Util.CLVar('$CCFLAGS -fPIC')
 
 
 env.Append(ENV=export_map)
 
 if env['dist'] and compiler != "msvc":
     if 'DISTCC_HOSTS' not in env['ENV']:
-        print "not using distcc as DISTCC_HOSTS is not set"
+        if env['verbose']:
+            print "not using distcc as DISTCC_HOSTS is not set"
         env['dist'] = 0
     elif not env.WhereIs("distcc"):
-        print "not using distcc as distcc not found in PATH"
+        if env['verbose']:
+            print "not using distcc as distcc not found in PATH"
         env['dist'] = 0
 
 if not env['verbose']:
     env.Replace(
     CXXCOMSTR   ='Compiling [$CXX] $SOURCE',
     ASCOMSTR    ='Assembling [$AS] $SOURCE',
+    ASPPCOMSTR  ='Assembling (with cpp) [$AS] $SOURCE',
     CCCOMSTR    ='Compiling [$CC] $SOURCE',
     SHCXXCOMSTR ='Compiling [$CXX] $SOURCE',
     SHCCCOMSTR  ='Compiling [$CC] $SOURCE',
@@ -356,24 +366,39 @@ if compiler == 'rvct':
 if compiler in gcc_variants or compiler == 'qcc':
     env['PROGSUFFIX'] = ""
 
-# setup distcc where available
-if compiler in gcc_variants and env['dist']:
-    # when doing parallel build use 2 * number of hosts as the numbre
-    # if parallel jobs
-    jobs = len(export_map['DISTCC_HOSTS'].split()) * 2
-    print "Performing parallel build with %d jobs" % jobs
-    SetOption('num_jobs', jobs)
-    env['LD']  =  env['CC']
-    env['CC']  = 'distcc %s' % env['CC']
-    env['CXX'] = 'distcc %s' % env['CXX']
-    if 'DMUCS_SERVER' in os.environ:
-        env['CC']  = 'gethost %s' % env['CC']
-        env['CXX'] = 'gethost %s' % env['CXX']
-        SetOption('num_jobs', 6)
-elif compiler == 'rvct':
-    pass
-else:
-    SetOption('num_jobs', 2)
+# Set a sensible default number of jobs, unless the user has specified
+# a non-default number on the commandline.
+if GetOption('num_jobs') == 1:
+    # setup distcc where available
+    if compiler in gcc_variants and env['dist']:
+        # when doing parallel build use 2 * number of hosts as the numbre
+        # if parallel jobs
+        jobs = len(export_map['DISTCC_HOSTS'].split()) * 2
+        print "Performing parallel build with %d jobs" % jobs
+        SetOption('num_jobs', jobs)
+        env['LD']  =  env['CC']
+        env['CC']  = 'distcc %s' % env['CC']
+        env['CXX'] = 'distcc %s' % env['CXX']
+        if 'DMUCS_SERVER' in os.environ:
+            env['CC']  = 'gethost %s' % env['CC']
+            env['CXX'] = 'gethost %s' % env['CXX']
+            SetOption('num_jobs', 6)
+    elif compiler == 'rvct':
+        pass
+    else:
+        try:
+            # we still use python2.5 on win32 and multiprocessing is
+            # not available.
+            import multiprocessing
+            maxjobs = multiprocessing.cpu_count() * 2
+        except:
+            maxjobs = 2
+            if sys.platform == 'win32':
+                try:
+                    maxjobs = int(os.environ['NUMBER_OF_PROCESSORS']) * 2
+                except (ValueError, KeyError):
+                    pass
+        SetOption('num_jobs', maxjobs)
 
 
 def remove(env, setting, flag):
@@ -571,8 +596,10 @@ if default_target:
     # Uncoment this if you always want to link the final target
     #env.AlwaysBuild(default_target)
 
-if compiler in ['rvct', 'msvc']:
+if compiler in ['rvct', 'msvc', 'i686-linux-android-gcc', 'i386-linux-gnueabi-gcc']:
     strip = 0
 
 if strip:
     env.AddPostAction(default_target, env.Action('$STRIP $STRIPFLAGS "%s"' % default_target[0].abspath))
+
+SCons.Warnings.suppressWarningClass(SCons.Warnings.PythonVersionWarning)

@@ -151,7 +151,7 @@ Memory map
 .plt            0x00000800       0xc8
  ** PLT         0x00000800       0xc8
 
-.text           0x000008c8     0x18ac
+.text           0x000008c8     0x194c
  .text.exit     0x000008c8       0x10 C:/Program Files (x86)/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
                 0x000008c8                __on_dlclose
  .text._ZN7_JNIEnv9FindClassEPKc
@@ -202,73 +202,73 @@ Memory map
  .text._Z37s3eAndroidAppiraterTerminate_platformv
                 0x00000f24        0x4 debug\s3eAndroidAppirater_platform.os
                 0x00000f24                s3eAndroidAppiraterTerminate_platform()
- .text._Z22AppiraterInit_platformPKcS0_iii
-                0x00000f28       0xa4 debug\s3eAndroidAppirater_platform.os
-                0x00000f28                AppiraterInit_platform(char const*, char const*, int, int, int)
+ .text._Z22AppiraterInit_platformPKcS0_iiiS0_S0_S0_S0_
+                0x00000f28      0x104 debug\s3eAndroidAppirater_platform.os
+                0x00000f28                AppiraterInit_platform(char const*, char const*, int, int, int, char const*, char const*, char const*, char const*)
  .text._Z30AppiraterEventOccured_platformv
-                0x00000fcc       0x50 debug\s3eAndroidAppirater_platform.os
-                0x00000fcc                AppiraterEventOccured_platform()
+                0x0000102c       0x50 debug\s3eAndroidAppirater_platform.os
+                0x0000102c                AppiraterEventOccured_platform()
  .text._Z23s3eAndroidAppiraterInitv
-                0x0000101c       0x14 debug\s3eAndroidAppirater.os
-                0x0000101c                s3eAndroidAppiraterInit()
+                0x0000107c       0x14 debug\s3eAndroidAppirater.os
+                0x0000107c                s3eAndroidAppiraterInit()
  .text._Z28s3eAndroidAppiraterTerminatev
-                0x00001030        0xc debug\s3eAndroidAppirater.os
-                0x00001030                s3eAndroidAppiraterTerminate()
+                0x00001090        0xc debug\s3eAndroidAppirater.os
+                0x00001090                s3eAndroidAppiraterTerminate()
  .text.AppiraterInit
-                0x0000103c       0x44 debug\s3eAndroidAppirater.os
-                0x0000103c                AppiraterInit
+                0x0000109c       0x64 debug\s3eAndroidAppirater.os
+                0x0000109c                AppiraterInit
  .text.AppiraterEventOccured
-                0x00001080       0x14 debug\s3eAndroidAppirater.os
-                0x00001080                AppiraterEventOccured
- .text._ZL18AppiraterInit_wrapPKcS0_iii
-                0x00001094       0xc8 debug\s3eAndroidAppirater_register.os
+                0x00001100       0x14 debug\s3eAndroidAppirater.os
+                0x00001100                AppiraterEventOccured
+ .text._ZL18AppiraterInit_wrapPKcS0_iiiS0_S0_S0_S0_
+                0x00001114       0xe8 debug\s3eAndroidAppirater_register.os
  .text._ZL26AppiraterEventOccured_wrapv
-                0x0000115c       0x90 debug\s3eAndroidAppirater_register.os
+                0x000011fc       0x90 debug\s3eAndroidAppirater_register.os
  .text._Z30s3eAndroidAppiraterRegisterExtv
-                0x000011ec       0x98 debug\s3eAndroidAppirater_register.os
-                0x000011ec                s3eAndroidAppiraterRegisterExt()
+                0x0000128c       0x98 debug\s3eAndroidAppirater_register.os
+                0x0000128c                s3eAndroidAppiraterRegisterExt()
  .text.RegisterExt
-                0x00001284        0xc debug\s3eAndroidAppirater_register.os
-                0x00001284                RegisterExt
+                0x00001324        0xc debug\s3eAndroidAppirater_register.os
+                0x00001324                RegisterExt
  .text.IwDebugTraceSetTraceChannel
-                0x00001290       0x1c C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(IwDebug.o)
-                0x00001290                IwDebugTraceSetTraceChannel
+                0x00001330       0x1c C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(IwDebug.o)
+                0x00001330                IwDebugTraceSetTraceChannel
  .text._GLOBAL__I_Y__sdk_modules_iwcore_source_IwDebug.cpp
-                0x000012ac       0xa4 C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(IwDebug.o)
+                0x0000134c       0xa4 C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(IwDebug.o)
  .text.IwDebugTraceIsChannelOn
-                0x00001350      0x2b8 C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(IwDebug.o)
-                0x00001350                IwDebugTraceIsChannelOn
+                0x000013f0      0x2b8 C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(IwDebug.o)
+                0x000013f0                IwDebugTraceIsChannelOn
  .text.IwDebugTraceLinePrintf
-                0x00001608      0x10c C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(IwDebug.o)
-                0x00001608                IwDebugTraceLinePrintf
+                0x000016a8      0x10c C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(IwDebug.o)
+                0x000016a8                IwDebugTraceLinePrintf
  .text.s3eEdkThreadRunOnOS
-                0x00001714       0x30 C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(edk_helpers.o)
-                0x00001714                s3eEdkThreadRunOnOS
- .text          0x00001744       0x44 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_aeabi_ldivmod.o)
-                0x00001744                __aeabi_ldivmod
- .text          0x00001788       0x10 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_dvmd_lnx.o)
-                0x00001788                __aeabi_idiv0
-                0x00001788                __aeabi_ldiv0
- .text          0x00001798       0x78 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(bpabi.o)
-                0x00001798                __gnu_ldivmod_helper
-                0x000017d4                __gnu_uldivmod_helper
- .text          0x00001810      0x498 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_divdi3.o)
-                0x00001810                __divdi3
- .text          0x00001ca8      0x404 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_udivdi3.o)
-                0x00001ca8                __udivdi3
+                0x000017b4       0x30 C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+                0x000017b4                s3eEdkThreadRunOnOS
+ .text          0x000017e4       0x44 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_aeabi_ldivmod.o)
+                0x000017e4                __aeabi_ldivmod
+ .text          0x00001828       0x10 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_dvmd_lnx.o)
+                0x00001828                __aeabi_idiv0
+                0x00001828                __aeabi_ldiv0
+ .text          0x00001838       0x78 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(bpabi.o)
+                0x00001838                __gnu_ldivmod_helper
+                0x00001874                __gnu_uldivmod_helper
+ .text          0x000018b0      0x498 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_divdi3.o)
+                0x000018b0                __divdi3
+ .text          0x00001d48      0x404 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_udivdi3.o)
+                0x00001d48                __udivdi3
  .text          0xffffffffffffffff       0xc8 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_udivsi3.o)
-                0x000020ac                __udivsi3
-                0x000020ac                __aeabi_uidiv
-                0x00002154                __aeabi_uidivmod
+                0x0000214c                __udivsi3
+                0x0000214c                __aeabi_uidiv
+                0x000021f4                __aeabi_uidivmod
 
-.rodata         0x00002174      0x2ac
- .rodata        0x00002174       0xd8 debug\s3eAndroidAppirater_platform.os
- .rodata        0x0000224c       0xb8 debug\s3eAndroidAppirater_register.os
+.rodata         0x00002214      0x2f4
+ .rodata        0x00002214      0x120 debug\s3eAndroidAppirater_platform.os
+ .rodata        0x00002334       0xb8 debug\s3eAndroidAppirater_register.os
  ** merge strings
-                0x00002304      0x11c
+                0x000023ec      0x11c
 
-.ARM.exidx      0x00002420        0x8
- .ARM.exidx     0x00002420        0x8 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_divdi3.o)
+.ARM.exidx      0x00002508        0x8
+ .ARM.exidx     0x00002508        0x8 c:/program files (x86)/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.8/libgcc.a(_divdi3.o)
 
 .fini_array     0x00003eb8        0x8
  .fini_array    0x00003eb8        0x4 C:/Program Files (x86)/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o

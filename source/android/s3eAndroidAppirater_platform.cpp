@@ -40,7 +40,7 @@ s3eResult s3eAndroidAppiraterInit_platform()
         goto fail;
 
     // Get all the extension methods
-    g_AppiraterInit = env->GetMethodID(cls, "AppiraterInit", "(Ljava/lang/String;Ljava/lang/String;III)I");
+    g_AppiraterInit = env->GetMethodID(cls, "AppiraterInit", "(Ljava/lang/String;Ljava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I");
     if (!g_AppiraterInit)
         goto fail;
 
@@ -75,12 +75,17 @@ void s3eAndroidAppiraterTerminate_platform()
     // Add any platform-specific termination code here
 }
 
-s3eResult AppiraterInit_platform(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents)
+s3eResult AppiraterInit_platform(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents, const char* message, const char* yesText, const char* laterText, const char* noText)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring cTitle_jstr = env->NewStringUTF(cTitle);
     jstring cAppName_jstr = env->NewStringUTF(cAppName);
-    return (s3eResult)env->CallIntMethod(g_Obj, g_AppiraterInit, cTitle_jstr, cAppName_jstr, iDays, iLaunches, iEvents);
+	
+    jstring message_jstr = env->NewStringUTF(message);
+    jstring yesText_jstr = env->NewStringUTF(yesText);
+    jstring laterText_jstr = env->NewStringUTF(laterText);
+    jstring noText_jstr = env->NewStringUTF(noText);
+    return (s3eResult)env->CallIntMethod(g_Obj, g_AppiraterInit, cTitle_jstr, cAppName_jstr, iDays, iLaunches, iEvents, message_jstr, yesText_jstr, laterText_jstr, noText_jstr);
 }
 
 s3eResult AppiraterEventOccured_platform()

@@ -22,7 +22,7 @@
 /**
  * Definitions for functions types passed to/from s3eExt interface
  */
-typedef  s3eResult(*AppiraterInit_t)(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents);
+typedef  s3eResult(*AppiraterInit_t)(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents, const char* message, const char* yesText, const char* laterText, const char* noText);
 typedef  s3eResult(*AppiraterEventOccured_t)();
 
 /**
@@ -77,7 +77,7 @@ s3eBool s3eAndroidAppiraterAvailable()
     return g_GotExt ? S3E_TRUE : S3E_FALSE;
 }
 
-s3eResult AppiraterInit(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents)
+s3eResult AppiraterInit(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents, const char* message, const char* yesText, const char* laterText, const char* noText)
 {
     IwTrace(ANDROIDAPPIRATER_VERBOSE, ("calling s3eAndroidAppirater[0] func: AppiraterInit"));
 
@@ -88,7 +88,7 @@ s3eResult AppiraterInit(const char* cTitle, const char* cAppName, int iDays, int
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    s3eResult ret = g_Ext.m_AppiraterInit(cTitle, cAppName, iDays, iLaunches, iEvents);
+    s3eResult ret = g_Ext.m_AppiraterInit(cTitle, cAppName, iDays, iLaunches, iEvents, message, yesText, laterText, noText);
 
 #ifdef LOADER_CALL_LOCK
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);

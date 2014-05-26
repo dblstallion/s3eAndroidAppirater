@@ -24,10 +24,10 @@ extern void s3eAndroidAppiraterTerminate();
 // code is oftern build standalone, outside the main loader build.
 #if defined I3D_OS_IPHONE || defined I3D_OS_OSX || defined I3D_OS_LINUX || defined I3D_OS_WINDOWS
 
-static s3eResult AppiraterInit_wrap(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents)
+static s3eResult AppiraterInit_wrap(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents, const char* message, const char* yesText, const char* laterText, const char* noText)
 {
     IwTrace(ANDROIDAPPIRATER_VERBOSE, ("calling s3eAndroidAppirater func on main thread: AppiraterInit"));
-    return (s3eResult)(intptr_t)s3eEdkThreadRunOnOS((s3eEdkThreadFunc)AppiraterInit, 5, cTitle, cAppName, iDays, iLaunches, iEvents);
+    return (s3eResult)(intptr_t)s3eEdkThreadRunOnOS((s3eEdkThreadFunc)AppiraterInit, 9, cTitle, cAppName, iDays, iLaunches, iEvents, message, yesText, laterText, noText);
 }
 
 static s3eResult AppiraterEventOccured_wrap()

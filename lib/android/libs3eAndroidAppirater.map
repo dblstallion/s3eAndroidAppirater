@@ -73,7 +73,7 @@ Memory map
 .plt            0x00000360       0x44
  ** PLT         0x00000360       0x44
 
-.text           0x000003a4      0x510
+.text           0x000003a4      0x5b4
  .text.exit     0x000003a4       0x10 C:/Program Files (x86)/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
                 0x000003a4                __on_dlclose
  .text._ZL27s3eEdkAndroidFindClass_realPKc
@@ -90,38 +90,38 @@ Memory map
  .text._Z37s3eAndroidAppiraterTerminate_platformv
                 0x0000068c        0x4 release\s3eAndroidAppirater_platform.os
                 0x0000068c                s3eAndroidAppiraterTerminate_platform()
- .text._Z22AppiraterInit_platformPKcS0_iii
-                0x00000690       0xa8 release\s3eAndroidAppirater_platform.os
-                0x00000690                AppiraterInit_platform(char const*, char const*, int, int, int)
+ .text._Z22AppiraterInit_platformPKcS0_iiiS0_S0_S0_S0_
+                0x00000690      0x124 release\s3eAndroidAppirater_platform.os
+                0x00000690                AppiraterInit_platform(char const*, char const*, int, int, int, char const*, char const*, char const*, char const*)
  .text._Z30AppiraterEventOccured_platformv
-                0x00000738       0x50 release\s3eAndroidAppirater_platform.os
-                0x00000738                AppiraterEventOccured_platform()
+                0x000007b4       0x50 release\s3eAndroidAppirater_platform.os
+                0x000007b4                AppiraterEventOccured_platform()
  .text._Z23s3eAndroidAppiraterInitv
-                0x00000788        0x4 release\s3eAndroidAppirater.os
-                0x00000788                s3eAndroidAppiraterInit()
+                0x00000804        0x4 release\s3eAndroidAppirater.os
+                0x00000804                s3eAndroidAppiraterInit()
  .text._Z28s3eAndroidAppiraterTerminatev
-                0x0000078c        0x4 release\s3eAndroidAppirater.os
-                0x0000078c                s3eAndroidAppiraterTerminate()
+                0x00000808        0x4 release\s3eAndroidAppirater.os
+                0x00000808                s3eAndroidAppiraterTerminate()
  .text.AppiraterInit
-                0x00000790        0x4 release\s3eAndroidAppirater.os
-                0x00000790                AppiraterInit
+                0x0000080c        0xc release\s3eAndroidAppirater.os
+                0x0000080c                AppiraterInit
  .text.AppiraterEventOccured
-                0x00000794        0x4 release\s3eAndroidAppirater.os
-                0x00000794                AppiraterEventOccured
+                0x00000818        0x4 release\s3eAndroidAppirater.os
+                0x00000818                AppiraterEventOccured
  .text._ZL26AppiraterEventOccured_wrapv
-                0x00000798       0x20 release\s3eAndroidAppirater_register.os
- .text._ZL18AppiraterInit_wrapPKcS0_iii
-                0x000007b8       0x48 release\s3eAndroidAppirater_register.os
+                0x0000081c       0x20 release\s3eAndroidAppirater_register.os
+ .text._ZL18AppiraterInit_wrapPKcS0_iiiS0_S0_S0_S0_
+                0x0000083c       0x68 release\s3eAndroidAppirater_register.os
  .text.RegisterExt
-                0x00000800       0x84 release\s3eAndroidAppirater_register.os
-                0x00000800                RegisterExt
+                0x000008a4       0x84 release\s3eAndroidAppirater_register.os
+                0x000008a4                RegisterExt
  .text.s3eEdkThreadRunOnOS
                 0xffffffffffffffff       0x30 C:\Marmalade\7.1\s3e\edk\lib\android/libedk.a(edk_helpers.o)
-                0x00000884                s3eEdkThreadRunOnOS
+                0x00000928                s3eEdkThreadRunOnOS
 
-.rodata         0x000008b4       0x78
+.rodata         0x00000958       0xc0
  ** merge strings
-                0x000008b4       0x78
+                0x00000958       0xc0
 
 .fini_array     0x00001ee8        0x8
  .fini_array    0x00001ee8        0x4 C:/Program Files (x86)/android-ndk-r9/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o

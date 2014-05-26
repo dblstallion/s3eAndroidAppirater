@@ -13,6 +13,7 @@ import com.ideaworks3d.marmalade.LoaderAPI;
 import com.ideaworks3d.marmalade.LoaderActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -23,30 +24,40 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
-
 class s3eAndroidAppirater
 {
 	private String sAppName;
     private String sTitle;
+	private String message;
+	private String yesText;
+	private String laterText;
+	private String noText;
+	
 	private static int iDays_till_prompt = 5;
     private static int iLaunches_till_prompt = 5;
     private static int iEvents_till_prompt = 21;
 	private Context mContext;
 	
-    public int AppiraterInit(String cTitle, String cAppName, int iDays, int iLaunches, int iEvents)
+    public int AppiraterInit(String cTitle, String cAppName, int iDays, int iLaunches, int iEvents, String message, String yesText, String laterText, String noText)
     {
-        
+        sTitle = cTitle;		
 		sAppName = cAppName;
-        sTitle = cTitle;
 		iDays_till_prompt = iDays;
 		iLaunches_till_prompt = iLaunches;
 		iEvents_till_prompt = iEvents;
+		
+        this.message = message;
+        this.yesText = yesText;
+        this.laterText = laterText;
+        this.noText = noText;
+		
         //We are currently in the Application thread,
         //enqueue the call to showMessage on the UI thread
         LoaderActivity.m_Activity.runOnUiThread(m_ShowMessage);
+		
         return 0;
     }
-			
+
     private final Runnable m_ShowMessage = new Runnable()
     {
         public void run()
@@ -116,29 +127,30 @@ class s3eAndroidAppirater
     private void showMessage(final SharedPreferences.Editor editor)
     {
         final Dialog dialog = new Dialog(mContext);
-        dialog.setTitle("Rate " + sTitle);
+        dialog.setTitle(sTitle);
 
         LinearLayout ll = new LinearLayout(mContext);
         ll.setOrientation(LinearLayout.VERTICAL);
+		ll.setPadding(20, 20, 20, 20);
         
         TextView tv = new TextView(mContext);
-        tv.setText("If you enjoy using " + sTitle + ", please take a moment to rate it. Thanks for your support!");
-        tv.setWidth(240);
-        tv.setPadding(14, 0, 14, 10);
+        tv.setText(message);
+        tv.setWidth(400);
+        tv.setPadding(10, 0, 10, 20);
         ll.addView(tv);
-        
+        		
         Button b1 = new Button(mContext);
-        b1.setText("Rate " + sTitle);
+        b1.setText(yesText);
         b1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + sAppName)));
                 dialog.dismiss();
             }
-        });        
+        });
         ll.addView(b1);
 
         Button b2 = new Button(mContext);
-        b2.setText("Remind me later");
+        b2.setText(laterText);
         b2.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 				editor.putLong("event_count", 0);
@@ -148,7 +160,7 @@ class s3eAndroidAppirater
         ll.addView(b2);
 
         Button b3 = new Button(mContext);
-        b3.setText("No, thanks");
+        b3.setText(noText);
         b3.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 if (editor != null) {
@@ -159,7 +171,7 @@ class s3eAndroidAppirater
             }
         });
         ll.addView(b3);
-
+		
         dialog.setContentView(ll);        
         dialog.show();        
     }
