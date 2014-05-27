@@ -79,13 +79,7 @@ class s3eAndroidAppirater
 				editor.putLong("date_firstlaunch", date_firstLaunch);
 			}
 			
-			// Wait at least n days before opening
-			if (launch_count >= iLaunches_till_prompt) {
-				if (System.currentTimeMillis() >= date_firstLaunch + 
-						(iDays_till_prompt * 24 * 60 * 60 * 1000)) {
-					showMessage(editor);
-				}
-			}
+			tryShowMessage(editor);
 
 			editor.commit();
 			
@@ -111,19 +105,28 @@ class s3eAndroidAppirater
 			// Increment event counter
 			long event_count = prefs.getLong("event_count", 0) + 1;
 			editor.putLong("event_count", event_count);
-
 			
-			// Wait at least n events before opening
-			if (event_count >= iEvents_till_prompt) {
-				showMessage(editor);
-			}
+			tryShowMessage(editor);
 
 			editor.commit();
-			
         }
     };
 
-
+	private void tryShowMessage(final SharedPreferences.Editor editor)
+	{
+		SharedPreferences prefs = mContext.getSharedPreferences("apprater", 0);
+		long launch_count = prefs.getLong("launch_count", 0);
+		Long date_firstLaunch = prefs.getLong("date_firstlaunch", 0);
+		long event_count = prefs.getLong("event_count", 0);
+			
+		if ((launch_count >= iLaunches_till_prompt) &&
+			(System.currentTimeMillis() >= date_firstLaunch + (iDays_till_prompt * 24 * 60 * 60 * 1000)) &&
+			(event_count >= iEvents_till_prompt))
+		{
+			showMessage(editor);
+		}
+	}
+	
     private void showMessage(final SharedPreferences.Editor editor)
     {
         final Dialog dialog = new Dialog(mContext);
@@ -144,6 +147,10 @@ class s3eAndroidAppirater
         b1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + sAppName)));
+                if (editor != null) {
+                    editor.putBoolean("dontshowagain", true);
+                    editor.commit();
+                }
                 dialog.dismiss();
             }
         });
