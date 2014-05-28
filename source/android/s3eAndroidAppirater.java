@@ -78,8 +78,6 @@ class s3eAndroidAppirater
 				date_firstLaunch = System.currentTimeMillis();
 				editor.putLong("date_firstlaunch", date_firstLaunch);
 			}
-			
-			tryShowMessage(editor);
 
 			editor.commit();
 			
