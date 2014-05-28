@@ -9,8 +9,8 @@ void appiraterInit()
 {
     if (s3eAndroidAppiraterAvailable() == S3E_TRUE)
     {
-        int days = 1;
-        int launches = 1;
+        int days = 0;
+        int launches = 2;
         int events = 5;
         AppiraterInit("BAMF!",
             "com.crankshaftgames.sfp",
