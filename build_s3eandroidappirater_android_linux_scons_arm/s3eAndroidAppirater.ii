@@ -1,23 +1,23 @@
-# 1 "C:\\git\\sfp\\s3eAndroidAppirater\\source\\generic\\s3eAndroidAppirater.cpp"
+# 1 "C:\\Users\\Stephane\\Documents\\sfp\\s3eAndroidAppirater\\source\\generic\\s3eAndroidAppirater.cpp"
 # 1 "<command-line>"
 # 1 "./temp_defines_release.h" 1
 # 1 "<command-line>" 2
-# 1 "C:\\git\\sfp\\s3eAndroidAppirater\\source\\generic\\s3eAndroidAppirater.cpp"
-# 13 "C:\\git\\sfp\\s3eAndroidAppirater\\source\\generic\\s3eAndroidAppirater.cpp"
+# 1 "C:\\Users\\Stephane\\Documents\\sfp\\s3eAndroidAppirater\\source\\generic\\s3eAndroidAppirater.cpp"
+# 13 "C:\\Users\\Stephane\\Documents\\sfp\\s3eAndroidAppirater\\source\\generic\\s3eAndroidAppirater.cpp"
 # 1 "../source/h/s3eAndroidAppirater_internal.h" 1
 # 18 "../source/h/s3eAndroidAppirater_internal.h"
-# 1 "../../../../marmalade/7.1/s3e/h/s3eTypes.h" 1
-# 35 "../../../../marmalade/7.1/s3e/h/s3eTypes.h"
+# 1 "c:/marmalade/7.4/s3e/h/s3eTypes.h" 1
+# 35 "c:/marmalade/7.4/s3e/h/s3eTypes.h"
 typedef unsigned char s3e_uint8_t;
 typedef signed char s3e_int8_t;
 typedef unsigned short int s3e_uint16_t;
 typedef signed short int s3e_int16_t;
 typedef unsigned int s3e_uint32_t;
 typedef signed int s3e_int32_t;
-# 49 "../../../../marmalade/7.1/s3e/h/s3eTypes.h"
+# 49 "c:/marmalade/7.4/s3e/h/s3eTypes.h"
   typedef signed long long s3e_int64_t;
   typedef unsigned long long s3e_uint64_t;
-# 62 "../../../../marmalade/7.1/s3e/h/s3eTypes.h"
+# 62 "c:/marmalade/7.4/s3e/h/s3eTypes.h"
 typedef s3e_uint64_t uint64_t;
 typedef s3e_int64_t int64_t;
 typedef s3e_uint32_t uint32_t;
@@ -26,10 +26,10 @@ typedef s3e_uint16_t uint16_t;
 typedef s3e_int16_t int16_t;
 typedef s3e_uint8_t uint8_t;
 typedef s3e_int8_t int8_t;
-# 84 "../../../../marmalade/7.1/s3e/h/s3eTypes.h"
+# 84 "c:/marmalade/7.4/s3e/h/s3eTypes.h"
     typedef int intptr_t;
     typedef unsigned int uintptr_t;
-# 96 "../../../../marmalade/7.1/s3e/h/s3eTypes.h"
+# 96 "c:/marmalade/7.4/s3e/h/s3eTypes.h"
 typedef unsigned int uint;
 typedef unsigned short int ushort;
 typedef unsigned long int ulong;
@@ -63,7 +63,7 @@ typedef uint16_t uint16;
 
 
 typedef int16_t int16;
-# 207 "../../../../marmalade/7.1/s3e/h/s3eTypes.h"
+# 207 "c:/marmalade/7.4/s3e/h/s3eTypes.h"
 typedef enum s3eResult
 {
     S3E_RESULT_SUCCESS = 0,
@@ -74,9 +74,9 @@ typedef enum s3eResult
 
 
 typedef uint8 s3eBool;
-# 227 "../../../../marmalade/7.1/s3e/h/s3eTypes.h"
+# 227 "c:/marmalade/7.4/s3e/h/s3eTypes.h"
 typedef unsigned short s3eWChar;
-# 237 "../../../../marmalade/7.1/s3e/h/s3eTypes.h"
+# 237 "c:/marmalade/7.4/s3e/h/s3eTypes.h"
 typedef int32 (*s3eCallback) (void* systemData, void* userData);
 # 19 "../source/h/s3eAndroidAppirater_internal.h" 2
 # 1 "../h/s3eAndroidAppirater.h" 1
@@ -124,7 +124,7 @@ void s3eAndroidAppiraterTerminate_platform();
 s3eResult AppiraterInit_platform(const char* cTitle, const char* cAppName, int iDays, int iLaunches, int iEvents, const char* message, const char* yesText, const char* laterText, const char* noText);
 
 s3eResult AppiraterEventOccured_platform();
-# 14 "C:\\git\\sfp\\s3eAndroidAppirater\\source\\generic\\s3eAndroidAppirater.cpp" 2
+# 14 "C:\\Users\\Stephane\\Documents\\sfp\\s3eAndroidAppirater\\source\\generic\\s3eAndroidAppirater.cpp" 2
 s3eResult s3eAndroidAppiraterInit()
 {
 

@@ -11,4 +11,12 @@
 #define S3E_EXT_ANDROIDAPPIRATER_NAME "s3eAndroidAppirater"
 #define S3E_EXT_ANDROIDAPPIRATER_HASH 0xf598d199
 
+#ifdef S3E_EXT_REGISTER
+#ifndef S3E_EXT_REGISTER_KEY
+#define S3E_EXT_REGISTER_KEY(name, num, key) S3E_EXT_REGISTER(name, num)
+#endif
+S3E_EXT_REGISTER("s3eAndroidAppirater", 2)
+#else
+
+#endif /* S3E_EXT_REGISTER */
 #endif /* !S3EANDROIDAPPIRATER_AUTODEFS_H */

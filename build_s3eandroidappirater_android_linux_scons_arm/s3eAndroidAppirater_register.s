@@ -1,6 +1,5 @@
 	.arch armv5te
-	.eabi_attribute 27, 3
-	.fpu vfp
+	.fpu softvfp
 	.eabi_attribute 20, 1
 	.eabi_attribute 21, 1
 	.eabi_attribute 23, 3

@@ -56,7 +56,7 @@ void s3eAndroidAppiraterRegisterExt()
     /*
      * Register the extension
      */
-    s3eEdkRegister("s3eAndroidAppirater", funcPtrs, sizeof(funcPtrs), flags, s3eAndroidAppiraterInit, s3eAndroidAppiraterTerminate, 0);
+s3eEdkRegister("s3eAndroidAppirater", funcPtrs, sizeof(funcPtrs), flags, s3eAndroidAppiraterInit, s3eAndroidAppiraterTerminate, 0);
 }
 
 #if !defined S3E_BUILD_S3ELOADER
