@@ -22,6 +22,9 @@ import android.widget.TextView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import java.util.List;
 import android.net.Uri;
 
 class s3eAndroidAppirater
@@ -125,6 +128,14 @@ class s3eAndroidAppirater
 		}
 	}
 	
+	public static boolean isIntentAvailable(Context context, Intent intent) {
+        final PackageManager packageManager = context.getPackageManager();      
+        List<ResolveInfo> list =
+                packageManager.queryIntentActivities(intent,
+                        PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
+    }
+	
     private void showMessage(final SharedPreferences.Editor editor)
     {
         final Dialog dialog = new Dialog(mContext);
@@ -144,7 +155,17 @@ class s3eAndroidAppirater
         b1.setText(yesText);
         b1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + sAppName)));
+				Intent[] intents = {
+					new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + sAppName)),
+					new Intent(Intent.ACTION_VIEW, Uri.parse("amzn://apps/android?p=" + sAppName)),
+				};
+				for (Intent intent : intents) {
+					if (isIntentAvailable(mContext, intent))
+					{
+						mContext.startActivity(intent);
+					}
+				}
+				
                 if (editor != null) {
                     editor.putBoolean("dontshowagain", true);
                     editor.commit();
