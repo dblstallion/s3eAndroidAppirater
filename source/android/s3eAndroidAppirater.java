@@ -40,6 +40,7 @@ class s3eAndroidAppirater
     private static int iLaunches_till_prompt = 5;
     private static int iEvents_till_prompt = 21;
 	private Context mContext;
+	private Intent[] mIntents;
 	
     public int AppiraterInit(String cTitle, String cAppName, int iDays, int iLaunches, int iEvents, String message, String yesText, String laterText, String noText)
     {
@@ -48,6 +49,11 @@ class s3eAndroidAppirater
 		iDays_till_prompt = iDays;
 		iLaunches_till_prompt = iLaunches;
 		iEvents_till_prompt = iEvents;
+		
+		mIntents = new Intent[] {
+					new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + sAppName)),
+					new Intent(Intent.ACTION_VIEW, Uri.parse("amzn://apps/android?p=" + sAppName)),
+		};
 		
         this.message = message;
         this.yesText = yesText;
@@ -100,6 +106,17 @@ class s3eAndroidAppirater
 			mContext = LoaderAPI.getActivity();
 			SharedPreferences prefs = mContext.getSharedPreferences("apprater", 0);
 			if (prefs.getBoolean("dontshowagain", false)) { return ; }
+			
+			boolean found = false;
+			for (Intent intent : mIntents) {
+				if (isIntentAvailable(mContext, intent))
+				{
+					found = true;
+					break;
+				}
+			}
+			
+			if (!found) { return; }
 			
 			SharedPreferences.Editor editor = prefs.edit();
 			
@@ -155,14 +172,11 @@ class s3eAndroidAppirater
         b1.setText(yesText);
         b1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-				Intent[] intents = {
-					new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + sAppName)),
-					new Intent(Intent.ACTION_VIEW, Uri.parse("amzn://apps/android?p=" + sAppName)),
-				};
-				for (Intent intent : intents) {
+				for (Intent intent : mIntents) {
 					if (isIntentAvailable(mContext, intent))
 					{
 						mContext.startActivity(intent);
+						break;
 					}
 				}
 				
